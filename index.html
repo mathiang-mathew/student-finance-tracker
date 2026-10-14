@@ -89,7 +89,7 @@
         <p>
           This is a Student Finance Tracker platform that helps students track
           their daily finances like knowing how much they have spent in a month,
-          what they purchased, when they purchased, etc
+          what they purchased, when they purchased, etc.
         </p>
         <h3>Contact</h3>
         <ul>
@@ -101,11 +101,54 @@
       </section>
       <section id="settings" aria-labelledby="settings-title">
         <h2 id="settings-title">Settings</h2>
+        <p>Base currency: RWF</p>
+        <form id="settings-form">
+          <fieldset>
+            <legend>Exchange Rates</legend>
+            <div class="field">
+              <label for="rate-usd">RWF per 1 USD</label>
+              <input
+                type="text"
+                id="rate-usd"
+                name="rate-usd"
+                inputmode="decimal"
+                aria-describedby="rate-usd-error"
+              />
+              <p id="rate-usd-error" class="error"></p>
+            </div>
+
+            <div class="field">
+              <label for="rate-ugx">RWF per 1 UGX</label>
+              <input
+                type="text"
+                id="rate-ugx"
+                name="rate-ugx"
+                inputmode="decimal"
+                aria-describedby="rate-ugx-error"
+              />
+              <p id="rate-ugx-error" class="error"></p>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Spending Cap</legend>
+            <div class="field">
+              <label for="monthly-cap">Monthly Cap (RWF)</label>
+              <input
+                type="text"
+                id="monthly-cap"
+                name="monthly-cap"
+                inputmode="decimal"
+                aria-describedby="monthly-cap-error"
+              />
+              <p id="monthly-cap-error" class="error"></p>
+            </div>
+          </fieldset>
+        </form>
       </section>
     </main>
     <footer>
       <a href="https://github.com/mathiang-mathew/">Mathiang Mathew GitHub</a>
-      <a href="mailto:m.mayen@alustudent.com">My E-mail</a>
+      <a href="mailto:m.mayen@alustudent.com">m.mayen@alustuden.com</a>
     </footer>
   </body>
 </html>
