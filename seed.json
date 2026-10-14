@@ -1,0 +1,137 @@
+[
+  {
+    "id": "txn_1791831600000_4821",
+    "description": "Transport fare payment",
+    "amount": 500,
+    "category": "Transport",
+    "date": "2026-10-12",
+    "createdAt": "2026-10-12T19:00:00.000Z",
+    "updatedAt": "2026-10-12T19:00:00.000Z"
+  },
+  {
+    "id": "txn_1791978310000_3471",
+    "description": "Lunch at cafeteria",
+    "amount": 2500,
+    "category": "Food",
+    "date": "2026-10-14",
+    "createdAt": "2026-10-14T11:45:10.000Z",
+    "updatedAt": "2026-10-14T11:45:10.000Z"
+  },
+  {
+    "id": "txn_1791882342000_7468",
+    "description": "Coffee with with classmates",
+    "amount": 1800,
+    "category": "Food",
+    "date": "2026-10-13",
+    "createdAt": "2026-10-13T09:05:42.000Z",
+    "updatedAt": "2026-10-13T09:05:42.000Z"
+  },
+  {
+    "id": "txn_1791641520000_1791",
+    "description": "Chemistry textbook (2nd ed.)",
+    "amount": 45000,
+    "category": "Books",
+    "date": "2026-10-10",
+    "createdAt": "2026-10-10T14:12:00.000Z",
+    "updatedAt": "2026-10-11T08:00:00.000Z"
+  },
+  {
+    "id": "txn_1788251400000_2186",
+    "description": "Semester tuition & fees",
+    "amount": 2400000,
+    "category": "Fees",
+    "date": "2026-09-01",
+    "createdAt": "2026-09-01T08:30:00.000Z",
+    "updatedAt": "2026-09-01T08:30:00.000Z"
+  },
+  {
+    "id": "txn_1791562830000_9779",
+    "description": "Airtime top-up",
+    "amount": 1000,
+    "category": "Other",
+    "date": "2026-10-09",
+    "createdAt": "2026-10-09T16:20:30.000Z",
+    "updatedAt": "2026-10-09T16:20:30.000Z"
+  },
+  {
+    "id": "txn_1791744000000_2542",
+    "description": "Film night \"Short Docs\" ticket",
+    "amount": 3000,
+    "category": "Entertainment",
+    "date": "2026-10-11",
+    "createdAt": "2026-10-11T18:40:00.000Z",
+    "updatedAt": "2026-10-11T18:40:00.000Z"
+  },
+  {
+    "id": "txn_1791454200000_6991",
+    "description": "Photocopy/printing @ campus",
+    "amount": 600,
+    "category": "Other",
+    "date": "2026-10-08",
+    "createdAt": "2026-10-08T10:10:00.000Z",
+    "updatedAt": "2026-10-08T10:10:00.000Z"
+  },
+  {
+    "id": "txn_1791358200000_1950",
+    "description": "Bus pass - monthly",
+    "amount": 15000,
+    "category": "Transport",
+    "date": "2026-10-07",
+    "createdAt": "2026-10-07T07:30:00.000Z",
+    "updatedAt": "2026-10-07T07:30:00.000Z"
+  },
+  {
+    "id": "txn_1767168900000_9313",
+    "description": "Café au lait + croissant",
+    "amount": 2800,
+    "category": "Food",
+    "date": "2025-12-31",
+    "createdAt": "2025-12-31T08:15:00.000Z",
+    "updatedAt": "2025-12-31T08:15:00.000Z"
+  },
+  {
+    "id": "txn_1767225900000_4517",
+    "description": "New Year's data bundle [promo]",
+    "amount": 3000,
+    "category": "Other",
+    "date": "2026-01-01",
+    "createdAt": "2026-01-01T00:05:00.000Z",
+    "updatedAt": "2026-01-01T00:05:00.000Z"
+  },
+  {
+    "id": "txn_1709211600000_1614",
+    "description": "Pizza slice on leap day",
+    "amount": 3500,
+    "category": "Food",
+    "date": "2024-02-29",
+    "createdAt": "2024-02-29T13:00:00.000Z",
+    "updatedAt": "2024-02-29T13:00:00.000Z"
+  },
+  {
+    "id": "txn_1791831605000_2408",
+    "description": "MoMo transaction fee",
+    "amount": 50,
+    "category": "Fees",
+    "date": "2026-10-12",
+    "createdAt": "2026-10-12T19:00:05.000Z",
+    "updatedAt": "2026-10-12T19:00:05.000Z"
+  },
+  {
+    "id": "txn_1791877800000_8104",
+    "description": "Free campus shuttle (promo)",
+    "amount": 0,
+    "category": "Transport",
+    "date": "2026-10-13",
+    "createdAt": "2026-10-13T07:50:00.000Z",
+    "updatedAt": "2026-10-13T07:50:00.000Z"
+  },
+  {
+    "id": "txn_1791232200000_7851",
+    "description": "Online course ($20 USD)",
+    "amount": 29000.5,
+    "category": "Other",
+    "date": "2026-10-05",
+    "createdAt": "2026-10-05T20:30:00.000Z",
+    "updatedAt": "2026-10-05T20:30:00.000Z"
+  }
+]
