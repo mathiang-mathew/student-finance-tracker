@@ -143,7 +143,29 @@
               <p id="monthly-cap-error" class="error"></p>
             </div>
           </fieldset>
+          <fieldset>
+            <legend>Categories</legend>
+
+            <ul>
+              <li>Food</li>
+              <li>Books</li>
+              <li>Transport</li>
+              <li>Entertainment</li>
+              <li>Fees</li>
+              <li>Other</li>
+            </ul>
+          </fieldset>
+          <div class="actions">
+            <button type="submit">Save Settings</button>
+          </div>
         </form>
+
+        <h3>Data</h3>
+        <div class="field">
+          <label for="import-file">Import data (JSON)</label>
+          <input type="file" id="import-file" accept=".json" />
+        </div>
+        <button type="button" id="export-btn">Export Data (JSON)</button>
       </section>
     </main>
     <footer>
