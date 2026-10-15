@@ -37,20 +37,19 @@ export function validateDate(value) {
   if (!PATTERNS.date.test(value)) {
     return "Enter the date as YYYY-MM-DD, for example 2026-10-15.";
   }
-
+  // Block future dates
+  const today = new Date().toLocaleDateString("en-CA");
+  if (value > today) {
+    return "The date cannot be in the future.";
+  }
   return "";
 }
 export function validateCategory(value) {
   if (value === "") {
-    return "A valid Category is required.";
+    return "A valid category is required.";
   }
   if (!PATTERNS.category.test(value)) {
-    return "Letters only, words separated by a single space or hyphen";
-  }
-  // Setting the dates to limit future dates
-  const today = new Date().toLocaleDateString("en-CA");
-  if (value > today) {
-    return "The date cannot be in the future";
+    return "Letters only, words separated by a single space or hyphen.";
   }
   return "";
 }
