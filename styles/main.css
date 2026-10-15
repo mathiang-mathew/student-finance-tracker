@@ -232,3 +232,29 @@ footer ul {
     transition: none !important;
   }
 }
+@media (min-width: 768px) {
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header h1 {
+    margin: 0;
+  }
+  main {
+    padding: var(--space-lg);
+  }
+}
+@media (min-width: 1024px) {
+  #expense-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 var(--space-md);
+  }
+  #expense-form .field {
+    flex: 1 1 40%;
+  }
+  #expense-form .actions {
+    flex-basis: 100%;
+  }
+}
