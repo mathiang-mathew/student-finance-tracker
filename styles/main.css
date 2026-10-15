@@ -1,50 +1,30 @@
 :root {
   /* Brand colours */
-  --color-primary: #2b5fa6;
-
-  /* deep blue: main buttons, links, header (white text 6.4:1) */
-  --color-primary-dark: #1f4a85;
-
-  /* hover state, focus ring (8.2:1 on background) */
-  --color-secondary: #f2b33d;
-
-  /* golden yellow: highlights, cards, chart bars. DARK TEXT ONLY (7.9:1) */
-  --color-secondary-light: #fdf3dc;
-
-  /* soft yellow tint for backgrounds (13.3:1 with dark text) */
-  --color-accent: #c0353b;
-
-  /* coral red: delete buttons, alerts (white text 5.5:1) */
-  --color-accent-bright: #e2454a;
-  /* bright coral: decoration only, never behind small text */
+  --color-primary: #2b5fa6; /* deep blue: main buttons, links, header (white text 6.4:1) */
+  --color-primary-dark: #1f4a85; /* hover state, focus ring (8.2:1 on background) */
+  --color-secondary: #f2b33d; /* golden yellow: highlights, cards, chart bars. DARK TEXT ONLY (7.9:1) */
+  --color-secondary-light: #fdf3dc; /* soft yellow tint for backgrounds (13.3:1 with dark text) */
+  --color-accent: #c0353b; /* coral red: delete buttons, alerts (white text 5.5:1) */
+  --color-accent-bright: #e2454a; /* bright coral: decoration only, never behind small text */
 
   /* Neutrals */
-  --color-bg: #f4f6fa;
-  /* page background (light grey-blue) */
-  --color-surface: #ffffff;
-  /* cards, forms, table */
-  --color-text: #1f2937;
-  /* main text (13.6:1 on background) */
-  --color-text-muted: #5b6474;
-  /* hints, labels, dates (5.5:1 on background) */
-  --color-border: #d8dee8;
-  /* soft card borders (decorative only) */
-  --color-border-input: #8a94a6;
-  /* input borders (3.1:1, meets the 3:1 rule for controls) */
+  --color-bg: #f4f6fa; /* page background (light grey-blue) */
+  --color-surface: #ffffff; /* cards, forms, table */
+  --color-text: #1f2937; /* main text (13.6:1 on background) */
+  --color-text-muted: #5b6474; /* hints, labels, dates (5.5:1 on background) */
+  --color-border: #d8dee8; /* soft card borders (decorative only) */
+  --color-border-input: #8a94a6; /* input borders (3.1:1, meets the 3:1 rule for controls) */
 
   /* Status */
-  --color-error: #b42318;
-  /* errors, over-cap message (6.6:1) */
-  --color-success: #157a3c;
-  /* saved, under-cap message (5.4:1) */
+  --color-error: #b42318; /* errors, over-cap message (6.6:1) */
+  --color-success: #157a3c; /* saved, under-cap message (5.4:1) */
 
   /* Buttons */
   --btn-bg: var(--color-primary);
   --btn-bg-hover: var(--color-primary-dark);
   --btn-text: #ffffff;
   --btn-danger-bg: var(--color-accent);
-  --btn-radius: 999px;
-  /* pill-shaped buttons, like the reference */
+  --btn-radius: 999px; /* pill-shaped buttons, like the reference */
   /* Typography */
   --font-heading: "Poppins", "Helvetica Neue", Helvetica, Arial, Sans-serif;
   --font-body:
@@ -100,7 +80,6 @@ h2 {
   font-size: var(--text-xl);
 }
 h3 {
-  font-size: var(--text-lg);
   font-size: var(--text-lg);
   margin-top: var(--space-xl);
 }
