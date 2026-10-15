@@ -1,0 +1,70 @@
+:root{
+/* Brand colours */
+    --color-primary: #2b5fa6;
+
+    /* deep blue: main buttons, links, header (white text 6.4:1) */
+    --color-primary-dark: #1f4a85;
+
+    /* hover state, focus ring (8.2:1 on background) */
+    --color-secondary: #f2b33d;
+
+    /* golden yellow: highlights, cards, chart bars. DARK TEXT ONLY (7.9:1) */
+    --color-secondary-light: #fdf3dc;
+
+    /* soft yellow tint for backgrounds (13.3:1 with dark text) */
+    --color-accent: #c0353b;
+
+    /* coral red: delete buttons, alerts (white text 5.5:1) */
+    --color-accent-bright: #e2454a;
+    /* bright coral: decoration only, never behind small text */
+
+/* Neutrals */
+    --color-bg: #f4f6fa;
+    /* page background (light grey-blue) */
+    --color-surface: #ffffff;
+    /* cards, forms, table */
+    --color-text: #1f2937;
+    /* main text (13.6:1 on background) */
+    --color-text-muted: #5b6474;
+    /* hints, labels, dates (5.5:1 on background) */
+    --color-border: #d8dee8;
+    /* soft card borders (decorative only) */
+    --color-border-input: #8a94a6;
+    /* input borders (3.1:1, meets the 3:1 rule for controls) */
+
+    /* Status */
+        --color-error: #b42318;
+        /* errors, over-cap message (6.6:1) */
+        --color-success: #157a3c;
+        /* saved, under-cap message (5.4:1) */
+
+    /* Buttons */
+            --btn-bg: var(--color-primary);
+            --btn-bg-hover: var(--color-primary-dark);
+            --btn-text: #ffffff;
+            --btn-danger-bg: var(--color-accent);
+            --btn-radius: 999px;
+            /* pill-shaped buttons, like the reference */
+    /* Typography */
+    --font-heading: "Poppins", "Helvetica Neue", Helvetica, Aria, Sans-serif;
+    --font-body: -apple-system, BlinkMacsSystemFont, "SF Pro Text", "Helvetica Neue", Helvetcia, Arial, Sans-serif;
+
+    --text-sm: 0.875rem; /* 14px: hints, table labels */
+    --text-base: 1rem;   /* 16px: body text */
+    --text-lg: 1.25rm;   /* 20px: h3 */
+    --text-xl: 1.5rem;   /* 24px: h2 */
+    --text-2xl: 2rem;    /* 32px: h1, big totals */
+    
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-xl: 2rem;
+
+    /* Shape and Motion */
+    --radius: 1rem;     /* Soft rounded cards */
+    --shadow: 0 4px 16px rgba(31, 41, 55, 0.08);
+    --focus-rising: 3px solid var(--color-primary-dark);
+    --transition: 150ms ease;
+
+}
