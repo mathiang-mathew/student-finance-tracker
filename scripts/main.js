@@ -55,24 +55,31 @@ const form = document.getElementById("expense-form");
 const statusEl = document.getElementById("status");
 
 form.addEventListener("submit", (event) => {
-  event.preventDefault();
+  event.preventDefault(); // stop the page reload
 
   const descError = validateDescription(descriptionInput.value);
   const amountError = validateAmount(amountInput.value);
   const dateError = validateDate(dateInput.value);
   const categoryError = validateCategory(categorySelect.value);
 
+  // Only check the custom box when "Other" is chosen.
+  let otherError = "";
+  if (categorySelect.value === "Other") {
+    otherError = validateCategory(otherInput.value);
+  }
+
   showError(descriptionInput, descError);
   showError(amountInput, amountError);
   showError(dateInput, dateError);
   showError(categorySelect, categoryError);
+  showError(otherInput, otherError);
 
-  if (descError || amountError || dateError || categoryError) {
+  if (descError || amountError || dateError || categoryError || otherError) {
     statusEl.textContent = "Please fix the errors above.";
-    return;
+    return; // stop here
   }
 
-  statusEl.textContent = "Expense saved."; // 4. success message
-  form.reset();
+  statusEl.textContent = "Expense saved.";
+  form.reset(); // clear the form
   otherField.hidden = true; // hide the "Specify Category" box again
 });
