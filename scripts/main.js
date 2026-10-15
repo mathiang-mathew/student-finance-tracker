@@ -49,3 +49,30 @@ categorySelect.addEventListener("change", () => {
 otherInput.addEventListener("input", () => {
   showError(otherInput, validateCategory(otherInput.value));
 });
+
+// Save: check every field before accepting the expense.
+const form = document.getElementById("expense-form");
+const statusEl = document.getElementById("status");
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const descError = validateDescription(descriptionInput.value);
+  const amountError = validateAmount(amountInput.value);
+  const dateError = validateDate(dateInput.value);
+  const categoryError = validateCategory(categorySelect.value);
+
+  showError(descriptionInput, descError);
+  showError(amountInput, amountError);
+  showError(dateInput, dateError);
+  showError(categorySelect, categoryError);
+
+  if (descError || amountError || dateError || categoryError) {
+    statusEl.textContent = "Please fix the errors above.";
+    return;
+  }
+
+  statusEl.textContent = "Expense saved."; // 4. success message
+  form.reset();
+  otherField.hidden = true; // hide the "Specify Category" box again
+});
