@@ -127,3 +127,21 @@ button {
   outline: var(--focus-ring);
   outline-offset: 2px;
 }
+
+header {
+    background: var(--color-primary);
+    color: var(--color-surface);
+    padding: var(--space-md);
+}
+nav ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm) var(--space-md);
+}
+nav a{
+    color: var(--color-surface);
+    font-weight: 600;
+}
