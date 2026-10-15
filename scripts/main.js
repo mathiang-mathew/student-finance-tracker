@@ -26,3 +26,26 @@ dateInput.addEventListener("input", () => {
   showError(dateInput, validateDate(dateInput.value));
 });
 dateInput.max = new Date().toLocaleDateString("en-CA");
+
+//Category: Show the "Specify Category" field when "Other" is choosen.
+const categorySelect = document.getElementById("category");
+const otherField = document.getElementById("category-other-field");
+const otherInput = document.getElementById("category-other");
+
+categorySelect.addEventListener("change", () => {
+  showError(categorySelect, validateCategory(categorySelect.value));
+
+  if (categorySelect.value === "Other") {
+    otherField.hidden = false;
+    otherInput.focus();
+  } else {
+    otherField.hidden = true;
+    otherInput.value = "";
+    showError(otherInput, "");
+  }
+});
+
+// Custom category: check as the user types.
+otherInput.addEventListener("input", () => {
+  showError(otherInput, validateCategory(otherInput.value));
+});
