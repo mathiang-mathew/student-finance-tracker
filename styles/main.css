@@ -110,3 +110,20 @@ select,
 button {
   font: inherit;
 }
+.skip-link {
+  position: absolute;
+  left: var(--space-md);
+  top: -100px; /* off-screen, above the page */
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-primary);
+  color: var(--btn-text;
+  border-radius: var(--radius);
+  z-index: 100; /* sits on top of everything */
+}
+.skip-link:focus {
+  top: var(--space-sm);
+}
+:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+}
