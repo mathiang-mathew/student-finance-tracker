@@ -25,3 +25,4 @@ const dateInput = document.getElementById("date");
 dateInput.addEventListener("input", () => {
   showError(dateInput, validateDate(dateInput.value));
 });
+dateInput.max = new Date().toLocaleDateString("en-CA");

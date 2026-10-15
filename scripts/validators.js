@@ -47,6 +47,10 @@ export function validateCategory(value) {
   if (!PATTERNS.category.test(value)) {
     return "Letters only, words separated by a single space or hyphen";
   }
-
+  // Setting the dates to limit future dates
+  const today = new Date().toLocaleDateString("en-CA");
+  if (value > today) {
+    return "The date cannot be in the future";
+  }
   return "";
 }
