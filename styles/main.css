@@ -101,6 +101,8 @@ h2 {
 }
 h3 {
   font-size: var(--text-lg);
+  font-size: var(--text-lg);
+  margin-top: var(--space-xl);
 }
 a {
   color: var(--color-primary);
@@ -188,6 +190,9 @@ fieldset {
   border-radius: var(--radius);
   padding: var(--space-md);
   margin: 0 0 var(--space-md);
+}
+fieldset ul {
+  margin-top: 0;
 }
 legend {
   font-family: var(--font-heading);
