@@ -4,12 +4,15 @@ import {
   validateDate,
   validateCategory,
 } from "./validators.js";
+import { records, addRecord } from "./state.js";
+
 // Shows (or clears) the error under an input, and tells screen readers.
 function showError(input, message) {
   const errorEl = document.getElementById(input.id + "-error");
   errorEl.textContent = message;
   input.setAttribute("aria-invalid", message ? "true" : "false");
 }
+
 // Description: check as the user types.
 const descriptionInput = document.getElementById("description");
 descriptionInput.addEventListener("input", () => {
@@ -78,6 +81,16 @@ form.addEventListener("submit", (event) => {
     statusEl.textContent = "Please fix the errors above.";
     return; // stop here
   }
+  // Use the typed custom category when "Other" is chosen
+  const category =
+    categorySelect.value === "Other" ? otherInput.value : categorySelect.value;
+  addRecord(
+    descriptionInput.value,
+    amountInput.value,
+    category,
+    dateInput.value,
+  );
+  console.log(records); // temporary: check that it saved
 
   statusEl.textContent = "Expense saved.";
   form.reset(); // clear the form
