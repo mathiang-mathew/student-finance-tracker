@@ -25,7 +25,18 @@ export function renderRecords(list) {
     addCell(row, record.description);
     addCell(row, record.category);
     addCell(row, record.amount.toLocaleString("en-US"));
-    addCell(row, "");
+
+    //Actions cell with a Delete button.
+    const actionsCell = document.createElement("td");
+    const deleteBtn = document.createElement("button");
+    deleteBtn.type = "button";
+    deleteBtn.className = "btn-secondary";
+    deleteBtn.textContent = "Delete";
+    deleteBtn.dataset.action = "delete";
+    deleteBtn.dataset.id = record.id;
+    deleteBtn.setAttribute("aria-label", "Delete " + record.description);
+    actionsCell.appendChild(deleteBtn);
+    row.appendChild(actionsCell);
     tbody.appendChild(row);
   });
 }

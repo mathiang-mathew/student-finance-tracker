@@ -4,7 +4,7 @@ import {
   validateDate,
   validateCategory,
 } from "./validators.js";
-import { records, addRecord } from "./state.js";
+import { records, addRecord, deleteRecord } from "./state.js";
 import { renderRecords } from "./ui.js";
 
 // Shows (or clears) the error under an input, and tells screen readers.
@@ -113,6 +113,23 @@ cancelBtn.addEventListener("click", () => {
 
   statusEl.textContent = "Form cleared.";
   descriptionInput.focus(); // put the cursor back at the start
+});
+
+// Delete: one listener on the table body handles every Delete button.
+const recordsBody = document.getElementById("records-body");
+
+recordsBody.addEventListener("click", (event) => {
+  const button = event.target.closest("button");
+  if (!button) return; // the click wasn't on a button
+
+  if (button.dataset.action === "delete") {
+    const ok = confirm("Delete this expense?");
+    if (!ok) return; // the user pressed Cancel
+
+    deleteRecord(button.dataset.id);
+    renderRecords(records);
+    statusEl.textContent = "Expense deleted.";
+  }
 });
 
 // Draw the table once when the page loads.

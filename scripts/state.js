@@ -22,3 +22,11 @@ export function addRecord(description, amount, category, date) {
   records.push(record);
   return record;
 }
+
+// Removes the records with this id from the list.
+export function deleteRecord(id) {
+  const index = records.findIndex((record) => record.id === id);
+  if (index !== -1) {
+    records.splice(index, 1); //remove 1 item at that position
+  }
+}
