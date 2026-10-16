@@ -22,7 +22,7 @@
   <body>
     <h1>Validator Tests</h1>
     <p id="summary" role="status"></p>
-    <ul id="Results"></ul>
+    <ul id="results"></ul>
 
     <script type="module">
       import {
@@ -48,7 +48,7 @@
         li.textContent =
           (ok ? "PASS: " : "FAIL: ") +
           label +
-          (message ? "(" + message + ")" : "");
+          (message ? " (" + message + ") " : "");
         results.appendChild(li);
       }
       // Description
