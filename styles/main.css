@@ -164,6 +164,13 @@ input[type="file"] {
   font-size: var(--text-sm);
   margin: var(--space-xs) 0 0;
 }
+/* Invalid fields: red border, set by showError via aria-invalid. */
+input[aria-invalid="true"],
+select[aria-invalid="true"] {
+  border-color: var(--color-error);
+  border-width: 2px;
+}
+
 fieldset {
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
@@ -197,7 +204,7 @@ button:hover {
   background: var(--btn-bg-hover);
 }
 .btn-secondary {
-  background: var(--color-bg);
+  background: var(--color-surface);
   color: var(--color-primary);
   border: 2px solid var(--color-primary);
 }
