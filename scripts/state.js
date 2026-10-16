@@ -36,7 +36,7 @@ export function updateRecord(id, description, amount, category, date) {
   if (!record) return; // no record with that id
 
   record.description = description;
-  record.amount = Number(______); // A.
+  record.amount = Number(amount);
   record.category = category;
   record.date = date;
   record.updatedAt = new Date().toISOString();

@@ -4,7 +4,7 @@ import {
   validateDate,
   validateCategory,
 } from "./validators.js";
-import { records, addRecord, deleteRecord } from "./state.js";
+import { records, addRecord, deleteRecord, updateRecord } from "./state.js";
 import { renderRecords } from "./ui.js";
 
 // Shows (or clears) the error under an input, and tells screen readers.
@@ -57,6 +57,14 @@ otherInput.addEventListener("input", () => {
 // Save: check every field before accepting the expense.
 const form = document.getElementById("expense-form");
 const statusEl = document.getElementById("status");
+const saveBtn = document.getElementById("save-btn");
+let editingId = null; // null = adding a new expense; an id = editing that record
+
+// Puts the form back into "add" mode.
+function stopEditing() {
+  editingId = null;
+  saveBtn.textContent = "Save";
+}
 
 form.addEventListener("submit", (event) => {
   event.preventDefault(); // stop the page reload
@@ -85,24 +93,36 @@ form.addEventListener("submit", (event) => {
   // Use the typed custom category when "Other" is chosen
   const category =
     categorySelect.value === "Other" ? otherInput.value : categorySelect.value;
-  addRecord(
-    descriptionInput.value,
-    amountInput.value,
-    category,
-    dateInput.value,
-  );
-  renderRecords(records);
+  if (editingId) {
+    updateRecord(
+      editingId,
+      descriptionInput.value,
+      amountInput.value,
+      category,
+      dateInput.value,
+    );
+    statusEl.textContent = "Expense updated.";
+  } else {
+    addRecord(
+      descriptionInput.value,
+      amountInput.value,
+      category,
+      dateInput.value,
+    );
+    statusEl.textContent = "Expense saved.";
+  }
 
-  statusEl.textContent = "Expense saved.";
+  renderRecords(records);
   form.reset(); // clear the form
   otherField.hidden = true; // hide the "Specify Category" box again
+  stopEditing(); // back to "add" mode
 });
-
 // Cancel: clear the form and every error message.
 const cancelBtn = document.getElementById("cancel-btn");
 
 cancelBtn.addEventListener("click", () => {
   form.reset();
+  stopEditing(); //leave edit mode if we were editing
   otherField.hidden = true;
 
   showError(descriptionInput, "");
@@ -129,6 +149,34 @@ recordsBody.addEventListener("click", (event) => {
     deleteRecord(button.dataset.id);
     renderRecords(records);
     statusEl.textContent = "Expense deleted.";
+  }
+  if (button.dataset.action === "edit") {
+    const record = records.find((r) => r.id === button.dataset.id);
+    if (!record) return;
+
+    //Copy the record's values into the form.
+    descriptionInput.value = record.description;
+    amountInput.value = record.amount;
+    dateInput.value = record.date;
+
+    // Standard categories go in the dropdown; custom ones go in the "Other" box.
+    const standard = ["Food", "Books", "Transport", "Entertainment", "Fees"];
+    if (standard.includes(record.category)) {
+      categorySelect.value = record.category;
+      otherField.hidden = true;
+      otherInput.value = "";
+    } else {
+      categorySelect.value = "Other";
+      otherField.hidden = false;
+      otherInput.value = record.category;
+    }
+    editingId = record.id;
+    saveBtn.textContent = "Update";
+    statusEl.textContent =
+      "Editing " +
+      record.description +
+      ". Change the fields, then press Update.";
+    descriptionInput.focus(); // jump the user up to the form
   }
 });
 
