@@ -9,6 +9,17 @@ function addCell(row, text) {
   td.textContent = text;
   row.appendChild(td);
 }
+// Makes one action button (Edit or Delete) tagged with the record's id.
+function makeButton(label, action, record) {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "btn-secondary";
+  button.textContent = label;
+  button.dataset.action = action;
+  button.dataset.id = record.id;
+  button.setAttribute("aria-label", label + " " + record.description);
+  return button;
+}
 
 // Clears the table, then draws one row per record.
 export function renderRecords(list) {
@@ -26,16 +37,10 @@ export function renderRecords(list) {
     addCell(row, record.category);
     addCell(row, record.amount.toLocaleString("en-US"));
 
-    //Actions cell with a Delete button.
+    // Actions cell with Edit and Delete buttons.
     const actionsCell = document.createElement("td");
-    const deleteBtn = document.createElement("button");
-    deleteBtn.type = "button";
-    deleteBtn.className = "btn-secondary";
-    deleteBtn.textContent = "Delete";
-    deleteBtn.dataset.action = "delete";
-    deleteBtn.dataset.id = record.id;
-    deleteBtn.setAttribute("aria-label", "Delete " + record.description);
-    actionsCell.appendChild(deleteBtn);
+    actionsCell.appendChild(makeButton("Edit", "edit", record));
+    actionsCell.appendChild(makeButton("Delete", "delete", record));
     row.appendChild(actionsCell);
     tbody.appendChild(row);
   });

@@ -30,3 +30,14 @@ export function deleteRecord(id) {
     records.splice(index, 1); //remove 1 item at that position
   }
 }
+// Changes an existing record and stamps the time it was edited.
+export function updateRecord(id, description, amount, category, date) {
+  const record = records.find((record) => record.id === id);
+  if (!record) return; // no record with that id
+
+  record.description = description;
+  record.amount = Number(______); // A.
+  record.category = category;
+  record.date = date;
+  record.updatedAt = new Date().toISOString();
+}
