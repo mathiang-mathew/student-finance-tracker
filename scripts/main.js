@@ -5,6 +5,7 @@ import {
   validateCategory,
 } from "./validators.js";
 import { records, addRecord } from "./state.js";
+import { renderRecords } from "./ui.js";
 
 // Shows (or clears) the error under an input, and tells screen readers.
 function showError(input, message) {
@@ -90,7 +91,7 @@ form.addEventListener("submit", (event) => {
     category,
     dateInput.value,
   );
-  console.log(records); // temporary: check that it saved
+  renderRecords(records);
 
   statusEl.textContent = "Expense saved.";
   form.reset(); // clear the form
@@ -113,3 +114,6 @@ cancelBtn.addEventListener("click", () => {
   statusEl.textContent = "Form cleared.";
   descriptionInput.focus(); // put the cursor back at the start
 });
+
+// Draw the table once when the page loads.
+renderRecords(records);
