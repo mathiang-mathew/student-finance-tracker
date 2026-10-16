@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validator Tests for Student Finance Tracker</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        padding: 1rem;
+        line-height: 1.6;
+      }
+      .pass {
+        color: #157a3c;
+      }
+      .fail {
+        color: #b42318;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Validator Tests</h1>
+    <p id="summary" role="status"></p>
+    <ul id="Results"></ul>
+
+    <script type="module">
+      import {
+        validateDescription,
+        validateAmount,
+        validateDate,
+        validateCategory,
+      } from "./scripts/validators.js";
+
+      const results = document.getElementById("results");
+      let passed = 0;
+      let total = 0;
+
+      // Runs one test: shows a pass or a fail line on the page.
+      function check(label, message, expectValid) {
+        total++;
+        const isValid = message === "";
+        const ok = isValid === expectValid;
+        if (ok) passed++;
+
+        const li = document.createElement("li");
+        li.className = ok ? "pass" : "fail";
+        li.textContent =
+          (ok ? "PASS: " : "FAIL: ") +
+          label +
+          (message ? "(" + message + ")" : "");
+        results.appendChild(li);
+      }
+      // Description
+      check(
+        'Description "Lunch at cafeteria"',
+        validateDescription("Lunch at cafeteria"),
+        true,
+      );
+      check("Description empty", validateDescription(""), false);
+      check(
+        'Description " Lunch" (leading space)',
+        validateDescription(" Lunch"),
+        false,
+      );
+      check(
+        'Description "Coffee with with friends"',
+        validateDescription("Coffee with with friends"),
+        false,
+      );
+
+      //amount
+      check('Amount "2500"', validateAmount("2500"), true);
+      check('Amount "29000.5"', validateAmount("29000.5"), true);
+      check('Amount "0"', validateAmount("0"), true);
+      check('Amount "007" (leading zeros)', validateAmount("007"), false);
+      check('Amount "12.345" (3 decimals)', validateAmount("12.345"), false);
+      check('Amount "-5"', validateAmount("-5"), false);
+
+      // Date
+      check('Date "2024-02-29" (leap day)', validateDate("2024-02-29"), true);
+      check('Date "2026-13-01" (month 13)', validateDate("2026-13-01"), false);
+      check('Date "2099-01-01" (future)', validateDate("2099-01-01"), false);
+      check("Date empty", validateDate(""), false);
+
+      // Category
+      check('Category "Food"', validateCategory("Food"), true);
+      check('Category "Pocket money"', validateCategory("Pocket money"), true);
+      check('Category "Rent2"', validateCategory("Rent2"), false);
+      check("Category empty", validateCategory(""), false);
+
+      document.getElementById("summary").textContent =
+        passed + " of " + total + " tests passed.";
+    </script>
+  </body>
+</html>

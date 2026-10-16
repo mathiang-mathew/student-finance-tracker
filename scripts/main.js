@@ -97,6 +97,6 @@ cancelBtn.addEventListener("click", () => {
   showError(categorySelect, "");
   showError(otherInput, "");
 
-  statusEl.textContent = "Form cleared";
+  statusEl.textContent = "Form cleared.";
   descriptionInput.focus(); // put the cursor back at the start
 });
