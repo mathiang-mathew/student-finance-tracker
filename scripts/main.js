@@ -83,3 +83,20 @@ form.addEventListener("submit", (event) => {
   form.reset(); // clear the form
   otherField.hidden = true; // hide the "Specify Category" box again
 });
+
+// Cancel: clear the form and every error message.
+const cancelBtn = document.getElementById("cancel-btn");
+
+cancelBtn.addEventListener("click", () => {
+  form.reset();
+  otherField.hidden = true;
+
+  showError(descriptionInput, "");
+  showError(amountInput, "");
+  showError(dateInput, "");
+  showError(categorySelect, "");
+  showError(otherInput, "");
+
+  statusEl.textContent = "Form cleared";
+  descriptionInput.focus(); // put the cursor back at the start
+});
