@@ -4,8 +4,15 @@ import {
   validateDate,
   validateCategory,
 } from "./validators.js";
-import { records, addRecord, deleteRecord, updateRecord } from "./state.js";
+import {
+  records,
+  addRecord,
+  deleteRecord,
+  updateRecord,
+  sortRecords,
+} from "./state.js";
 import { renderRecords } from "./ui.js";
+import { compileRegex, filterRecords } from "./search.js";
 
 // Shows (or clears) the error under an input, and tells screen readers.
 function showError(input, message) {
@@ -112,7 +119,7 @@ form.addEventListener("submit", (event) => {
     statusEl.textContent = "Expense saved.";
   }
 
-  renderRecords(records);
+  refresh();
   form.reset(); // clear the form
   otherField.hidden = true; // hide the "Specify Category" box again
   stopEditing(); // back to "add" mode
@@ -147,7 +154,7 @@ recordsBody.addEventListener("click", (event) => {
     if (!ok) return; // the user pressed Cancel
 
     deleteRecord(button.dataset.id);
-    renderRecords(records);
+    refresh();
     statusEl.textContent = "Expense deleted.";
   }
   if (button.dataset.action === "edit") {
@@ -180,5 +187,45 @@ recordsBody.addEventListener("click", (event) => {
   }
 });
 
+// Escape cancels an edit (from the keyboard map in the M1 spec).
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && editingId) {
+    cancelBtn.click();
+    statusEl.textContent = "Edit cancelled.";
+  }
+});
+
+// Search and sort: redraw whenever the user types or changes an option.
+const searchInput = document.getElementById("search");
+const searchError = document.getElementById("search-error");
+const searchStatus = document.getElementById("search-status");
+const caseBox = document.getElementById("case-sensitive");
+const sortSelect = document.getElementById("sort-by");
+
+searchInput.addEventListener("input", refresh);
+caseBox.addEventListener("change", refresh);
+sortSelect.addEventListener("change", refresh);
+
+// Redraws the table: sort a copy, apply the search, then render.
+function refresh() {
+  let regex = compileRegex(searchInput.value, caseBox.checked);
+  searchError.textContent = "";
+  if (regex && regex.error) {
+    searchError.textContent = regex.error;
+    regex = null; // fall back to showing everything
+  }
+
+  const sorted = sortRecords(records, sortSelect.value);
+  const visible = filterRecords(sorted, regex);
+
+  let emptyText = "No expenses yet. Add your first expense to see it here.";
+  if (records.length > 0) emptyText = "No records match your search.";
+  renderRecords(visible, regex, emptyText);
+
+  searchStatus.textContent = regex
+    ? visible.length + " of " + records.length + " records match."
+    : "";
+}
+
 // Draw the table once when the page loads.
-renderRecords(records);
+refresh();

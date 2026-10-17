@@ -34,6 +34,38 @@
       </section>
       <section id="records-table" aria-labelledby="records-table-title">
         <h2 id="records-table-title">Records Table</h2>
+        <div class="controls">
+          <div class="field">
+            <label for="search">Search (regex)</label>
+            <input
+              type="text"
+              id="search"
+              name="search"
+              aria-describedby="search-hint search-error"
+            />
+            <p id="search-hint" class="hint">
+              Try <code>^Coffee</code>, <code>(food|fees)</code> or
+              <code>\b(\w+)\s+\1\b</code>
+            </p>
+            <p id="search-error" class="error"></p>
+          </div>
+          <div class="field">
+            <label for="sort-by">Sort by</label>
+            <select id="sort-by" name="sort-by">
+              <option value="date-desc">Date (newest first)</option>
+              <option value="date-asc">Date (oldest first)</option>
+              <option value="desc-asc">Description (A to Z)</option>
+              <option value="desc-desc">Description (Z to A)</option>
+              <option value="amount-desc">Amount (highest first)</option>
+              <option value="amount-asc">Amount (lowest first)</option>
+            </select>
+          </div>
+          <div class="field checkbox">
+            <input type="checkbox" id="case-sensitive" name="case-sensitive" />
+            <label for="case-sensitive">Case sensitive</label>
+          </div>
+        </div>
+        <p id="search-status" role="status" aria-live="polite"></p>
         <p id="records-empty">
           No expenses yet. Add your first expense to see it here.
         </p>
