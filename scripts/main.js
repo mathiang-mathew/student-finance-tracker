@@ -10,9 +10,12 @@ import {
   deleteRecord,
   updateRecord,
   sortRecords,
+  settings,
 } from "./state.js";
 import { renderRecords } from "./ui.js";
 import { compileRegex, filterRecords } from "./search.js";
+import { computeStats } from "./stats.js";
+import { renderDashboard } from "./dashboard.js";
 
 // Shows (or clears) the error under an input, and tells screen readers.
 function showError(input, message) {
@@ -225,6 +228,9 @@ function refresh() {
   searchStatus.textContent = regex
     ? visible.length + " of " + records.length + " records match."
     : "";
+
+  // The dashboard always uses ALL records, not just the search results.
+  renderDashboard(computeStats(records, settings.cap), settings);
 }
 
 // Draw the table once when the page loads.
