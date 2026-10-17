@@ -1,6 +1,13 @@
 // App state: the single list of expenses
 export const records = [];
 
+// Settings, with sensible defaults
+export const settings = {
+  rateUsd: 1450, // RWF per 1 USD
+  rateUgx: 0.39, // RWF per 1 UGX
+  cap: 200000, // monthly spending cap in RWF
+};
+
 // Makes a unique ID (timestamp + 4 random digits).
 export function makeId() {
   const random = Math.floor(1000 + Math.random() * 9000);
@@ -47,7 +54,7 @@ export function replaceRecords(newList) {
   records.splice(0, records.length, ...newList);
 }
 
-//Returns a sorted COPY of the list (the original order is left alone).
+// Returns a sorted COPY of the list (the original order is left alone).
 export function sortRecords(list, sortBy) {
   const copy = [...list];
   if (sortBy === "date-desc") copy.sort((a, b) => b.date.localeCompare(a.date));
