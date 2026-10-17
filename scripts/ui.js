@@ -52,3 +52,32 @@ export function renderRecords(list, regex, emptyText) {
     tbody.appendChild(row);
   });
 }
+
+// Category dropdown and the Settings category list, both built from settings.
+const categorySelect = document.getElementById("category");
+const categoryList = document.getElementById("category-list");
+
+export function renderCategories(categories) {
+  // Dropdown: placeholder, the user's categories, then "Other" (always last).
+  const chosen = categorySelect.value;
+  categorySelect.innerHTML = "";
+  categorySelect.append(new Option("Choose a Category", ""));
+  categories.forEach((name) => categorySelect.append(new Option(name, name)));
+  categorySelect.append(new Option("Other", "Other"));
+  categorySelect.value = chosen; // keep the user's choice if it still exists
+
+  // Settings list: each category with a Remove button.
+  categoryList.innerHTML = "";
+  categories.forEach((name) => {
+    const item = document.createElement("li");
+    item.append(name + " ");
+    const remove = document.createElement("button");
+    remove.type = "button";
+    remove.className = "btn-secondary";
+    remove.textContent = "Remove";
+    remove.dataset.category = name;
+    remove.setAttribute("aria-label", "Remove category " + name);
+    item.appendChild(remove);
+    categoryList.appendChild(item);
+  });
+}
