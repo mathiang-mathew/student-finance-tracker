@@ -53,3 +53,14 @@ export function validateCategory(value) {
   }
   return "";
 }
+
+// Settings numbers (rates and cap): same number rules as amounts, but must be above 0.
+export function validatePositive(value, label) {
+  if (value === "") {
+    return label + " is required.";
+  }
+  if (!PATTERNS.amount.test(value) || Number(value) <= 0) {
+    return label + " must be a number above 0, like 1450 or 0.39.";
+  }
+  return "";
+}

@@ -6,6 +6,7 @@ export const settings = {
   rateUsd: 1450, // RWF per 1 USD
   rateUgx: 0.39, // RWF per 1 UGX
   cap: 200000, // monthly spending cap in RWF
+  categories: ["Food", "Books", "Transport", "Entertainment", "Fees"],
 };
 
 // Makes a unique ID (timestamp + 4 random digits).
