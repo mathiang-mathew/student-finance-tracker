@@ -225,6 +225,80 @@ footer ul {
   flex-wrap: wrap;
   gap: var(--space-md);
 }
+/* Records table */
+.hint {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  margin: var(--space-xs) 0 0;
+}
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+.checkbox input {
+  width: auto;
+}
+.checkbox label {
+  margin: 0;
+}
+mark {
+  background: var(--color-secondary);
+  color: var(--color-text);
+  border-radius: 2px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th,
+td {
+  text-align: left;
+  padding: var(--space-sm);
+  border-bottom: 1px solid var(--color-border);
+}
+td[data-label="Actions"] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+td[data-label="Actions"] button {
+  padding: var(--space-xs) var(--space-md);
+}
+
+/* Phones: each row becomes a card, with the column name before each value. */
+@media (max-width: 767px) {
+  thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+  table,
+  tbody,
+  tr,
+  td {
+    display: block;
+  }
+  tr {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: var(--space-sm);
+    margin-bottom: var(--space-sm);
+  }
+  td {
+    border: none;
+    padding: var(--space-xs) 0;
+  }
+  td::before {
+    content: attr(data-label) ": ";
+    font-weight: 600;
+  }
+  td[data-label="Actions"]::before {
+    content: none;
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   * {
