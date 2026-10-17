@@ -41,3 +41,23 @@ export function updateRecord(id, description, amount, category, date) {
   record.date = date;
   record.updatedAt = new Date().toISOString();
 }
+
+// Swaps every record for a new list (used by import, load sample, and page load).
+export function replaceRecords(newList) {
+  records.splice(0, records.length, ...newList);
+}
+
+//Returns a sorted COPY of the list (the original order is left alone).
+export function sortRecords(list, sortBy) {
+  const copy = [...list];
+  if (sortBy === "date-desc") copy.sort((a, b) => b.date.localeCompare(a.date));
+  if (sortBy === "date-asc") copy.sort((a, b) => a.date.localeCompare(b.date));
+  if (sortBy === "desc-asc")
+    copy.sort((a, b) => a.description.localeCompare(b.description));
+  if (sortBy === "desc-desc")
+    copy.sort((a, b) => b.description.localeCompare(a.description));
+  if (sortBy === "amount-desc") copy.sort((a, b) => b.amount - a.amount);
+  if (sortBy === "amount-asc") copy.sort((a, b) => a.amount - b.amount);
+
+  return copy;
+}
