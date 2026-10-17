@@ -31,6 +31,36 @@
       <section id="dashboard" aria-labelledby="dashboard-title">
         <h2 id="dashboard-title">Dashboard</h2>
         <p id="dashboard-empty">Your spending summary will appear here</p>
+        <div id="dashboard-content" hidden>
+          <dl class="stats">
+            <div class="stat">
+              <dt>Total records</dt>
+              <dd id="stat-count"></dd>
+            </div>
+            <div class="stat">
+              <dt>Total spent</dt>
+              <dd id="stat-total"></dd>
+              <dd id="stat-total-converted" class="hint"></dd>
+            </div>
+            <div class="stat">
+              <dt>Top category</dt>
+              <dd id="stat-top"></dd>
+            </div>
+            <div class="stat">
+              <dt>Spent this month</dt>
+              <dd id="stat-month"></dd>
+            </div>
+          </dl>
+
+          <h3>Monthly cap</h3>
+          <div class="cap-bar" aria-hidden="true">
+            <div id="cap-fill" class="cap-fill"></div>
+          </div>
+          <p id="cap-status" role="status" aria-live="polite"></p>
+
+          <h3 id="trend-title">Last 7 days</h3>
+          <ul id="trend" class="trend" aria-labelledby="trend-title"></ul>
+        </div>
       </section>
       <section id="records-table" aria-labelledby="records-table-title">
         <h2 id="records-table-title">Records Table</h2>
