@@ -331,3 +331,18 @@ td[data-label="Actions"] button {
     flex-basis: 100%;
   }
 }
+@media (min-width: 768px) {
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 0 var(--space-md);
+  }
+  .controls .field {
+    flex: 1 1 30%;
+  }
+  .controls .checkbox {
+    flex: 0 0 auto;
+    margin-top: 2rem;
+  }
+}
