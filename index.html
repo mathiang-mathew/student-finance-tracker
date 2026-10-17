@@ -240,29 +240,43 @@
               <p id="monthly-cap-error" class="error"></p>
             </div>
           </fieldset>
-          <fieldset>
-            <legend>Categories</legend>
-
-            <ul>
-              <li>Food</li>
-              <li>Books</li>
-              <li>Transport</li>
-              <li>Entertainment</li>
-              <li>Fees</li>
-              <li>Other</li>
-            </ul>
-          </fieldset>
           <div class="actions">
             <button type="submit">Save Settings</button>
           </div>
         </form>
-
+        <h3 id="categories-title">Categories</h3>
+        <p class="hint">
+          "Other" is always available and lets you type a one-off category.
+        </p>
+        <ul
+          id="category-list"
+          class="category-list"
+          aria-labelledby="categories-title"
+        ></ul>
+        <div class="field">
+          <label for="new-category">Add a category</label>
+          <div class="inline">
+            <input
+              type="text"
+              id="new-category"
+              name="new-category"
+              aria-describedby="new-category-error"
+            />
+            <button type="button" id="add-category-btn">Add</button>
+          </div>
+          <p id="new-category-error" class="error"></p>
+        </div>
         <h3>Data</h3>
         <div class="field">
           <label for="import-file">Import data (JSON)</label>
-          <input type="file" id="import-file" accept=".json" />
+          <input type="file" id="import-file" accept=".json,application/json" />
         </div>
-        <button type="button" id="export-btn">Export Data (JSON)</button>
+        <div class="actions">
+          <button type="button" id="export-btn">Export Data (JSON)</button>
+          <button type="button" id="sample-btn" class="btn-secondary">
+            Load sample data
+          </button>
+        </div>
       </section>
     </main>
     <footer>
