@@ -10,7 +10,7 @@ https://mathiang-mathew.github.io/student-finance-tracker/
 
 ## Demo Video
 
-[Watch the demo (unlisted)](PASTE_YOUR_VIDEO_LINK_HERE)
+Watch the demo (unlisted) https://www.youtube.com/watch?v=iiNFb9P0Tzw
 
 ## Features
 
