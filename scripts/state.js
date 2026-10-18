@@ -3,7 +3,7 @@ export const records = [];
 
 // Settings, with sensible defaults
 export const settings = {
-  rateUsd: 1450, // RWF per 1 USD
+  rateUsd: 1460, // RWF per 1 USD
   rateUgx: 0.39, // RWF per 1 UGX
   cap: 200000, // monthly spending cap in RWF
   categories: ["Food", "Books", "Transport", "Entertainment", "Fees"],
